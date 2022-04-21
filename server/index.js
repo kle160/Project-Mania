@@ -12,11 +12,10 @@ const PORT = 3000;
 const CONNECTION_URL = 'mongodb+srv://lekevin2013:codesmith22@cluster0.u1rlg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 // Starting path for all routers
+app.use(cors());
 app.use('/posts', postRoutes)
-
 app.use(bodyParser.json({ limit: "30mb", extended: true}))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}))
-app.use(cors());
 
 //useNewUrlParser and useUnified Topology not required but will give errors if not used
 mongoose.connect(CONNECTION_URL)
